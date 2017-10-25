@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-
+import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 const buttonStyle = {
     margin: '10px'
 }
@@ -53,4 +53,15 @@ class Counter extends Component {
     }
 }
 
+// 定义传入值得类型
+Counter.propTypes = {
+    caption: PropTypes.string.isRequired,
+    initValue: PropTypes.number,
+    onUpdate: PropTypes.func
+};
+// 定义默认值
+Counter.defaultProps = {
+    initValue: 0,
+    onUpdate: f => f //什么都不做的函数
+}
 export default Counter;
