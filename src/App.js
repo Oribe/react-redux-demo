@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 // import logo from './logo.svg';
-import ControlPanel from './views/ControlPanel';
-
+import ControlPanel from './views/ControlPanel.js'
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ControlPanel/>
+        <ControlPanel />
       </div>
     );
   }

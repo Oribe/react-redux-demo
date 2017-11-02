@@ -1,35 +1,23 @@
-import React, {Component} from 'react';
-import SummaryStore from '../stores/SummaryStore.js';
-
+import React, { Component } from 'react';
+import store from "../Store.js";
 class Summary extends Component {
+
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.onUpdate = this
-            .onUpdate
-            .bind(this);
+        this.state = this.getOwnState();
+    }
 
-        this.state = {
-            sum: SummaryStore.getSummary()
+    getOwnState() {
+        const state = store.getState();
+        let sum = 0;
+        for (const key in state) {
+            if (state.hasOwnProperty(key)) {
+                sum += state[key];
+            }
         }
+        return { sum: sum }
     }
-
-    // 页面加载时绑定onUpdate()
-    componentDidMount() {
-        SummaryStore.addChangeListener(this.onUpdate)
-    }
-
-    //页面卸载时解除事件绑定
-    componentWillUnmount() {
-        SummaryStore.removeChangeListener(this.onUpdate)
-    }
-
-    onUpdate() {
-        this.setState({
-            sum: SummaryStore.getSummary()
-        })
-    }
-
     render() {
         return (
             <div>Total Count: {this.state.sum}</div>

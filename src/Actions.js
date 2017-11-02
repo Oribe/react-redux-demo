@@ -1,12 +1,19 @@
-// 'use strict'
-import * as ActionTypes from './ActionTypes';
-import AppDispatcher from './AppDispatcher.js';
+'strict'
+import * as ActionTypes from "./ActionTypes.js";
 
-// 定义action的构造函数
-export const increment = (counterCaption) => {
-    AppDispatcher.dispatch({type: ActionTypes.INCREMENT, counterCaption: counterCaption});
-};
 
-export const decrement = (counterCaption) => {
-    AppDispatcher.dispatch({type: ActionTypes.DECREMENT, counterCaption: counterCaption})
+//定义构造函数
+export const increment = (CounterCaption) => {
+    return ({
+        type: ActionTypes.INCREMENT,
+        counterCaption: CounterCaption,
+    })
+}
+
+
+export const decrement = (CounterCaption) => {
+    return ({
+        type: ActionTypes.DECREMENT,
+        counterCaption: CounterCaption,
+    })
 }
